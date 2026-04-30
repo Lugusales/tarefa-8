@@ -3,7 +3,9 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
-
+app.get('/', (req, res) => {
+  res.send('API funcionando!');
+});
 app.get('/datahora', (req, res) => {
   const agora = new Date();
 
