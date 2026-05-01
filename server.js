@@ -1,20 +1,12 @@
-const express = require('express');
-const cors = require('cors');
-
-const app = express();
-app.use(cors());
-app.get('/', (req, res) => {
-  res.send('API funcionando!');
-});
 app.get('/datahora', (req, res) => {
   const agora = new Date();
 
   res.json({
-    data: agora.toLocaleDateString('pt-BR'),
-    hora: agora.toLocaleTimeString('pt-BR')
+    data: agora.toLocaleDateString('pt-BR', {
+      timeZone: 'America/Sao_Paulo'
+    }),
+    hora: agora.toLocaleTimeString('pt-BR', {
+      timeZone: 'America/Sao_Paulo'
+    })
   });
-});
-
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
 });
